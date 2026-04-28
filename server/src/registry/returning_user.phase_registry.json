@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "mode": "returning_user",
+  "default_phase": "advocacy_greeting",
+  "phases": {
+    "advocacy_greeting": {
+      "display_name": "Welcome Back",
+      "purpose": "Welcome the returning user by name, acknowledge their progress with one concrete metric, and set the stage for a performance review.",
+      "allowed_targets": ["performance_review", "engagement_wrapup"],
+      "conditions": {
+        "performance_review": "all_required_complete"
+      },
+      "max_turns": 5,
+      "auto_advance": true,
+      "order": 1
+    },
+    "performance_review": {
+      "display_name": "Review Progress",
+      "purpose": "Present the user's dashboard metrics in flowing sentences, then use Socratic questioning to help them identify their biggest skill gap (self_assessment + identified_gap).",
+      "allowed_targets": ["gap_deepdive"],
+      "conditions": {
+        "gap_deepdive": "all_required_complete"
+      },
+      "max_turns": 10,
+      "auto_advance": true,
+      "order": 2
+    },
+    "gap_deepdive": {
+      "display_name": "Understanding Your Gap",
+      "purpose": "Explore WHY the identified gap exists and WHEN it shows up — build enough context to give a truly personalized recommendation.",
+      "allowed_targets": ["personalized_nudge"],
+      "conditions": {
+        "personalized_nudge": "all_required_complete"
+      },
+      "max_turns": 3,
+      "auto_advance": true,
+      "order": 3
+    },
+    "personalized_nudge": {
+      "display_name": "Your Action Plan",
+      "purpose": "Give a rich, contextual plan tied to gap_context and gap_scenario — not just an exercise suggestion but a reasoned approach the user can start today.",
+      "allowed_targets": ["engagement_wrapup"],
+      "conditions": {
+        "engagement_wrapup": "all_required_complete"
+      },
+      "max_turns": 5,
+      "auto_advance": true,
+      "order": 4
+    },
+    "engagement_wrapup": {
+      "display_name": "Goodbye",
+      "purpose": "Close the conversation gracefully when the user declines to engage or after the nudge commitment is captured.",
+      "allowed_targets": [],
+      "conditions": {},
+      "max_turns": 2,
+      "auto_advance": false,
+      "order": 5
+    }
+  }
+}

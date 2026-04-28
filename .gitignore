@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+server/.env
+server/.env.*
+!server/.env.example
+
+# Runtime data with PII
+server/data/leads.csv
+
+# Local development artifacts
+__pycache__/
+*.pyc
+.DS_Store
+chroma_db/
+
+# Cursor/editor local metadata
+.cursor/
+.vscode/

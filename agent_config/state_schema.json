@@ -1,0 +1,231 @@
+{
+  "version": "1.0",
+  "global_fields": {
+    "mode": {
+      "type": "enum: engagement | advocacy",
+      "required": true,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Mode",
+      "description": "Whether this is an engagement (new visitor) or advocacy (returning user) session."
+    },
+    "user_id": {
+      "type": "string",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "User ID",
+      "description": "Identifier for returning users in advocacy mode."
+    },
+    "user_display_name": {
+      "type": "string",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "User Name",
+      "description": "Display name of the returning user, loaded from dashboard data."
+    },
+    "avg_communication_score": {
+      "type": "number",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Avg Communication Score",
+      "description": "Average communication score (1-5 scale) from the dashboard."
+    },
+    "avg_critical_thinking_score": {
+      "type": "number",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Avg Critical Thinking Score",
+      "description": "Average critical thinking score (1-5 scale) from the dashboard."
+    },
+    "avg_mcq_score": {
+      "type": "number",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Avg MCQ Score",
+      "description": "Average MCQ score as a percentage from the dashboard."
+    },
+    "passages_attempted": {
+      "type": "integer",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Passages Attempted",
+      "description": "Total number of passages attempted by the user."
+    },
+    "time_spent_minutes": {
+      "type": "number",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Time Spent",
+      "description": "Total time spent on the platform in minutes."
+    },
+    "percentage_effort": {
+      "type": "number",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Effort Percentage",
+      "description": "Percentage of effort based on activity consistency."
+    },
+    "streak_days": {
+      "type": "integer",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Streak",
+      "description": "Number of consecutive days the user has practiced."
+    },
+    "days_since_last_login": {
+      "type": "integer",
+      "required": false,
+      "update_policy": "overwrite",
+      "default": null,
+      "display_name": "Days Since Last Login",
+      "description": "Number of days since the user last logged in."
+    }
+  },
+  "phases": {
+    "engagement_greeting": {
+      "visitor_context": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "What brought you here",
+        "description": "What brought the visitor to BoostCTC or what they are looking for."
+      },
+      "career_stage": {
+        "type": "enum: early | mid | senior | student | parent",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Career stage",
+        "description": "Where the visitor is in their career or learning journey."
+      }
+    },
+    "value_exploration": {
+      "interest_area": {
+        "type": "enum: ai_literacy | critical_thinking | communication | leadership | all",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Interest area",
+        "description": "Which skill area resonates most with the visitor."
+      },
+      "resonance_point": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "What resonated",
+        "description": "The specific feature, story, or value proposition that resonated with the visitor."
+      }
+    },
+    "socratic_taste": {
+      "reflection_response": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Reflection",
+        "description": "The visitor's response to the Socratic reflection question."
+      },
+      "engagement_signal": {
+        "type": "enum: interested | neutral | declined",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Interest level",
+        "description": "Whether the visitor showed interest in trying BoostCTC."
+      }
+    },
+    "lead_capture": {
+      "user_name": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Name",
+        "description": "The visitor's name."
+      },
+      "user_email": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Email",
+        "description": "The visitor's email address."
+      },
+      "user_role": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Role or interest",
+        "description": "The visitor's professional role or primary interest area."
+      }
+    },
+    "engagement_wrapup": {
+      "farewell_acknowledged": {
+        "type": "boolean",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Farewell acknowledged",
+        "description": "Whether the visitor acknowledged the closing message."
+      }
+    },
+    "advocacy_greeting": {
+      "return_acknowledged": {
+        "type": "boolean",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Return acknowledged",
+        "description": "Whether the returning user acknowledged the welcome back."
+      }
+    },
+    "performance_review": {
+      "self_assessment": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Self-assessment",
+        "description": "The user's own assessment of their progress and performance."
+      },
+      "identified_gap": {
+        "type": "enum: critical_thinking | communication | consistency | mcq_accuracy | overall",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Identified gap",
+        "description": "The skill gap the user wants to focus on improving."
+      }
+    },
+    "personalized_nudge": {
+      "nudge_accepted": {
+        "type": "boolean",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Nudge accepted",
+        "description": "Whether the user accepted the personalized recommendation."
+      },
+      "next_action_commitment": {
+        "type": "string",
+        "required": true,
+        "update_policy": "overwrite",
+        "default": null,
+        "display_name": "Next action",
+        "description": "What the user committed to doing next on the platform."
+      }
+    }
+  }
+}

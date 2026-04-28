@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk to Mira - BoostCTC AI Voice Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://boostctc.com/assets/boostctc-Dr4qiuOh.svg" type="image/svg+xml" />
+</head>
+<body class="landing-body">
+
+  <!-- Animated mesh background -->
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob blob-1"></div>
+    <div class="mesh-blob blob-2"></div>
+    <div class="mesh-blob blob-3"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-glass">
+    <a href="https://boostctc.com" class="navbar-brand" target="_blank">
+      <img src="https://boostctc.com/assets/boostctc-Dr4qiuOh.svg" alt="BoostCTC Logo" />
+    </a>
+    <div class="navbar-links">
+      <a href="https://boostctc.com/about" target="_blank">About</a>
+      <a href="https://boostctc.com/contact" target="_blank">Contact</a>
+      <a href="https://boostctc.com/faq" target="_blank">FAQ</a>
+      <a href="https://boostctc.com/sign-in" target="_blank" class="btn-signin">Sign In</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <main class="landing-main">
+    <div class="hero-content">
+
+      <!-- Orb above headline -->
+      <div class="hero-orb-wrap" aria-hidden="true">
+        <img class="hero-orb" src="orb-clean.png" alt="Mira AI orb" draggable="false" />
+        <div class="hero-orb-glow"></div>
+      </div>
+
+      <div class="hero-badge">AI Voice Assistant</div>
+      <h1 class="hero-title">Meet Mira</h1>
+      <p class="hero-sub">
+        Your AI guide to BoostCTC, ask anything, get answers in real time,<br class="desktop-only" />
+        and experience Socratic coaching firsthand.
+      </p>
+
+      <!-- Mode selection cards -->
+      <div class="mode-grid">
+
+        <a href="new.html" class="mode-card mode-card--new" role="button">
+          <div class="mode-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div class="mode-card-label">New here?</div>
+          <h2 class="mode-card-title">I'm exploring BoostCTC</h2>
+          <p class="mode-card-desc">Get an elevator pitch, see how Socratic coaching feels, and find out if BoostCTC is right for you.</p>
+          <div class="mode-card-cta">
+            Start chatting
+            <svg class="cta-arrow" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+            </svg>
+          </div>
+        </a>
+
+        <a href="returning.html" class="mode-card mode-card--returning" role="button">
+          <div class="mode-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 12V22H4V12"/>
+              <path d="M22 7H2v5h20V7z"/>
+              <path d="M12 22V7"/>
+              <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/>
+              <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
+            </svg>
+          </div>
+          <div class="mode-card-label">Already a member?</div>
+          <h2 class="mode-card-title">Welcome back, Agniva</h2>
+          <p class="mode-card-desc">Pick up where you left off. Mira will review your progress and suggest your next move.</p>
+          <div class="mode-card-cta">
+            Resume journey
+            <svg class="cta-arrow" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"/>
+            </svg>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Bottom tagline -->
+      <p class="hero-footnote">Powered by GPT-4o · Vapi voice · Cosine RAG over BoostCTC knowledge base</p>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-landing">
+    <p>
+      &copy; 2026 <a href="https://boostctc.com" target="_blank">TalkValley Technologies LLC</a> (BoostCTC) &nbsp;&middot;&nbsp;
+      <a href="https://boostctc.com/privacy-policy" target="_blank">Privacy Policy</a> &nbsp;&middot;&nbsp;
+      <a href="https://boostctc.com/terms-of-service" target="_blank">Terms</a> &nbsp;&middot;&nbsp;
+      <a href="mailto:support@boostctc.com">support@boostctc.com</a>
+    </p>
+  </footer>
+
+  <script>
+    // Subtle 3D tilt on cards
+    document.querySelectorAll('.mode-card').forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 6}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  </script>
+
+</body>
+</html>

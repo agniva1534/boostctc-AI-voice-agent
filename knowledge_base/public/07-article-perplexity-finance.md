@@ -1,0 +1,9 @@
+Perplexity has rolled out a new feature for its Finance platform that simplifies how investors analyze corporate earnings performance. The update displays a company's earnings beat and miss history across 16 quarters in a single, easy-to-read graph.
+
+The visual representation allows users to quickly identify patterns in how consistently a company meets, exceeds, or falls short of analyst expectations without needing to compile data in spreadsheets or navigate multiple sources. This streamlined approach addresses a common pain point for both casual and serious investors who track earnings trends as part of their investment research.
+
+Earnings reports are critical indicators of corporate health and often drive significant stock price movements. By presenting four years of quarterly results in one view, Perplexity Finance enables users to spot whether a company consistently outperforms expectations, struggles to meet forecasts, or shows improving or deteriorating performance over time.
+
+The feature represents Perplexity's continued effort to make financial data more accessible and actionable. Rather than requiring users to manually aggregate historical earnings data from various financial platforms, the tool consolidates this information into a single visual format that supports faster, more informed decision-making.
+
+This addition complements the growing suite of financial tools available through AI-powered search platforms, which increasingly compete with traditional financial data providers by offering more intuitive interfaces and integrated research capabilities. For investors seeking to understand a company's track record of meeting market expectations, this visualization provides immediate insight that previously required more time and effort to compile.

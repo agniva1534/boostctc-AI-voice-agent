@@ -1,0 +1,9 @@
+Cognition has revealed that it uses its own AI software engineering agent, Devin, to help develop and maintain the Devin platform itself—a compelling example of dogfooding in the AI industry.
+
+Devin is a cloud-based autonomous agent designed to function as a collaborative team member for engineering organizations. The platform handles a range of software development tasks and can independently create pull requests, effectively operating as an additional engineer on the team.
+
+According to Cognition, Devin excels at tasks typically suitable for junior engineers given clear instructions. The company deploys Devin for targeted code refactoring, bug fixes, pull request reviews, unit test creation, and codebase modernization projects including migrations. This self-referential approach allows Cognition to test Devin's capabilities in real-world scenarios while improving its own product development velocity.
+
+However, Cognition acknowledges that Devin has notable limitations. The agent currently struggles with large-scale architectural challenges that require broad system understanding. User interface design and aesthetic considerations remain difficult for Devin to handle effectively. Mobile development tasks also present challenges, as does work requiring extensive testing and validation cycles.
+
+The disclosure illustrates both the promise and current boundaries of AI coding agents. While Devin can autonomously handle well-defined, bounded engineering tasks, complex problem-solving and subjective decision-making still require human developers. By using Devin to build Devin, Cognition gains firsthand insight into where autonomous agents add value and where human expertise remains irreplaceable—knowledge that likely informs the platform's ongoing development roadmap.

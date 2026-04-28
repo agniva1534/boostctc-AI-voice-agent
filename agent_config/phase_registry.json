@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "default_phase": "engagement_greeting",
+  "phases": {
+    "engagement_greeting": {
+      "display_name": "Welcome",
+      "purpose": "Warmly greet a new visitor, learn what brought them to BoostCTC, and identify their career stage.",
+      "allowed_targets": ["value_exploration"],
+      "conditions": {
+        "value_exploration": "all_required_complete"
+      },
+      "max_turns": 8,
+      "auto_advance": true,
+      "order": 1
+    },
+    "value_exploration": {
+      "display_name": "Explore Value",
+      "purpose": "Walk the visitor through BoostCTC's methodology, career evolution path, and features to find what resonates most.",
+      "allowed_targets": ["socratic_taste"],
+      "conditions": {
+        "socratic_taste": "all_required_complete"
+      },
+      "max_turns": 10,
+      "auto_advance": true,
+      "order": 2
+    },
+    "socratic_taste": {
+      "display_name": "Socratic Demo",
+      "purpose": "Give the visitor a brief taste of the Socratic coaching method with a reflective question and guided hints.",
+      "allowed_targets": ["lead_capture", "engagement_wrapup"],
+      "conditions": {
+        "lead_capture": "engagement_signal_interested",
+        "engagement_wrapup": "engagement_signal_not_interested"
+      },
+      "max_turns": 8,
+      "auto_advance": false,
+      "order": 3
+    },
+    "lead_capture": {
+      "display_name": "Get Started",
+      "purpose": "Capture the interested visitor's name, email, and role so they can get started with BoostCTC.",
+      "allowed_targets": [],
+      "conditions": {},
+      "max_turns": 6,
+      "auto_advance": false,
+      "order": 4
+    },
+    "engagement_wrapup": {
+      "display_name": "Goodbye",
+      "purpose": "Gracefully close the conversation when the visitor is not ready to sign up.",
+      "allowed_targets": [],
+      "conditions": {},
+      "max_turns": 3,
+      "auto_advance": false,
+      "order": 5
+    },
+    "advocacy_greeting": {
+      "display_name": "Welcome Back",
+      "purpose": "Welcome a returning user by name, acknowledge their progress, and set the stage for a performance review.",
+      "allowed_targets": ["performance_review"],
+      "conditions": {
+        "performance_review": "all_required_complete"
+      },
+      "max_turns": 5,
+      "auto_advance": true,
+      "order": 6
+    },
+    "performance_review": {
+      "display_name": "Review Progress",
+      "purpose": "Present the user's dashboard metrics and use Socratic questioning to help them identify their biggest skill gap.",
+      "allowed_targets": ["personalized_nudge"],
+      "conditions": {
+        "personalized_nudge": "all_required_complete"
+      },
+      "max_turns": 10,
+      "auto_advance": true,
+      "order": 7
+    },
+    "personalized_nudge": {
+      "display_name": "Next Steps",
+      "purpose": "Recommend a specific exercise or focus area based on the user's identified gap and get a micro-commitment.",
+      "allowed_targets": [],
+      "conditions": {},
+      "max_turns": 5,
+      "auto_advance": false,
+      "order": 8
+    }
+  }
+}

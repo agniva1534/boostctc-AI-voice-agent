@@ -1,0 +1,59 @@
+{
+  "version": "1.0",
+  "mode": "new_visitor",
+  "default_phase": "engagement_greeting",
+  "phases": {
+    "engagement_greeting": {
+      "display_name": "Welcome",
+      "purpose": "Warmly greet the new visitor. The elevator pitch has already been delivered by Vapi. Identify what brought them here (visitor_context) and where they are in their journey (career_stage).",
+      "allowed_targets": ["value_exploration"],
+      "conditions": {
+        "value_exploration": "all_required_complete"
+      },
+      "max_turns": 6,
+      "auto_advance": true,
+      "order": 1
+    },
+    "value_exploration": {
+      "display_name": "Explore Value",
+      "purpose": "Walk the visitor through BoostCTC's methodology and career evolution path to find what resonates — Daily Practice, AI Feedback, Continuous Progress, Socratic Guide. Capture interest_area and resonance_point.",
+      "allowed_targets": ["socratic_taste"],
+      "conditions": {
+        "socratic_taste": "all_required_complete"
+      },
+      "max_turns": 5,
+      "auto_advance": true,
+      "order": 2
+    },
+    "socratic_taste": {
+      "display_name": "Socratic Demo",
+      "purpose": "Give the visitor a live taste of BoostCTC's Socratic coaching method with a vivid reflective question matched to their interest_area. Capture reflection_response and engagement_signal.",
+      "allowed_targets": ["lead_capture", "engagement_wrapup"],
+      "conditions": {
+        "lead_capture": "engagement_signal == interested",
+        "engagement_wrapup": "engagement_signal == declined"
+      },
+      "max_turns": 8,
+      "auto_advance": true,
+      "order": 3
+    },
+    "lead_capture": {
+      "display_name": "Get Started",
+      "purpose": "Capture the interested visitor's name and email so they can get started with BoostCTC.",
+      "allowed_targets": [],
+      "conditions": {},
+      "max_turns": 6,
+      "auto_advance": false,
+      "order": 4
+    },
+    "engagement_wrapup": {
+      "display_name": "Goodbye",
+      "purpose": "Gracefully close the conversation when the visitor is not ready to sign up. No pressure, open door.",
+      "allowed_targets": [],
+      "conditions": {},
+      "max_turns": 3,
+      "auto_advance": false,
+      "order": 5
+    }
+  }
+}

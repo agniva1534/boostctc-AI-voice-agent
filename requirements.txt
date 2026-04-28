@@ -1,0 +1,7 @@
+vapi-server-sdk
+fastapi
+uvicorn[standard]
+chromadb
+requests
+beautifulsoup4
+python-dotenv

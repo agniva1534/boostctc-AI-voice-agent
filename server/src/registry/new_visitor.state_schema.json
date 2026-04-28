@@ -1,0 +1,80 @@
+{
+  "version": "1.0",
+  "mode": "new_visitor",
+  "fields": {
+    "career_stage": {
+      "type": "enum",
+      "values": ["student", "early_career", "mid_career", "parent", "educator", "unknown"],
+      "required": true,
+      "phase": "engagement_greeting",
+      "update_policy": "once",
+      "default": "unknown",
+      "description": "Which life/career stage the visitor belongs to."
+    },
+    "visitor_context": {
+      "type": "string",
+      "required": true,
+      "phase": "engagement_greeting",
+      "update_policy": "merge",
+      "default": "",
+      "description": "Free-form context the user shared about why they are here."
+    },
+    "pain_point": {
+      "type": "string",
+      "required": false,
+      "phase": "value_exploration",
+      "update_policy": "merge",
+      "default": null,
+      "description": "Specific communication or career challenge the user mentioned."
+    },
+    "socratic_reflection": {
+      "type": "string",
+      "required": false,
+      "phase": "socratic_taste",
+      "update_policy": "replace",
+      "default": null,
+      "description": "The user's response to the Socratic taste question."
+    },
+    "engagement_signal": {
+      "type": "enum",
+      "values": ["interested", "neutral", "declined", "unknown"],
+      "required": true,
+      "phase": "socratic_taste",
+      "update_policy": "replace",
+      "default": "unknown",
+      "description": "Whether the user engaged genuinely, neutrally, or declined after the Socratic taste."
+    },
+    "lead_name": {
+      "type": "string",
+      "required": false,
+      "phase": "lead_capture",
+      "update_policy": "once",
+      "default": null,
+      "description": "First (or full) name collected during lead capture."
+    },
+    "lead_email": {
+      "type": "string",
+      "required": false,
+      "phase": "lead_capture",
+      "update_policy": "once",
+      "default": null,
+      "description": "Email address collected during lead capture."
+    },
+    "required_complete": {
+      "type": "boolean",
+      "required": false,
+      "phase": "orchestrator_managed",
+      "update_policy": "replace",
+      "default": false,
+      "description": "Set true by the analyzer when all required fields for the current phase are filled."
+    },
+    "phase_suggestion": {
+      "type": "string",
+      "required": false,
+      "phase": "orchestrator_managed",
+      "update_policy": "replace",
+      "default": null,
+      "description": "Phase the analyzer detected the conversation should move to."
+    }
+  }
+}

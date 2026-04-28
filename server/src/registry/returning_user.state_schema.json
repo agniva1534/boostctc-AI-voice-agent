@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "mode": "returning_user",
+  "fields": {
+    "user_id": {
+      "type": "string",
+      "required": true,
+      "phase": "returning_welcome",
+      "update_policy": "once",
+      "default": "sughosh-demo",
+      "description": "Key into users.json for looking up dashboard stats."
+    },
+    "acknowledged_return": {
+      "type": "boolean",
+      "required": true,
+      "phase": "returning_welcome",
+      "update_policy": "once",
+      "default": false,
+      "description": "True once the user has acknowledged they are back / the welcome has been given."
+    },
+    "self_identified_gap": {
+      "type": "string",
+      "required": false,
+      "phase": "performance_review",
+      "update_policy": "replace",
+      "default": null,
+      "description": "Skill area the user themselves identified as a gap through the Socratic review."
+    },
+    "recommended_exercise": {
+      "type": "string",
+      "required": false,
+      "phase": "personalized_nudge",
+      "update_policy": "once",
+      "default": null,
+      "description": "Specific exercise name from the platform recommended based on the self-identified gap."
+    },
+    "micro_commitment": {
+      "type": "enum",
+      "values": ["yes", "no", "later", "unknown"],
+      "required": true,
+      "phase": "personalized_nudge",
+      "update_policy": "replace",
+      "default": "unknown",
+      "description": "Whether the user committed to trying the recommended exercise this week."
+    },
+    "required_complete": {
+      "type": "boolean",
+      "required": false,
+      "phase": "orchestrator_managed",
+      "update_policy": "replace",
+      "default": false,
+      "description": "Set true by the analyzer when all required fields for the current phase are filled."
+    },
+    "phase_suggestion": {
+      "type": "string",
+      "required": false,
+      "phase": "orchestrator_managed",
+      "update_policy": "replace",
+      "default": null,
+      "description": "Phase the analyzer detected the conversation should move to."
+    }
+  }
+}

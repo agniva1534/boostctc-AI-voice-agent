@@ -1,0 +1,9 @@
+Alpha School has released striking test results demonstrating that its unconventional AI-integrated curriculum is producing exceptional academic outcomes. Students using the school's compressed 2-hour daily academic model are consistently scoring in the 99th percentile across nearly all grade levels and subject areas.
+
+The AI-first approach represents a significant departure from traditional education models, condensing formal academic instruction into just two hours per day while leveraging artificial intelligence tools to enhance learning efficiency. This dramatic reduction in instructional time challenges long-held assumptions about the relationship between seat time and academic achievement.
+
+The reported performance metrics span multiple subjects and grade levels, suggesting the model's effectiveness isn't limited to specific age groups or academic disciplines. By achieving 99th percentile results—meaning students are outperforming 99% of their peers—Alpha School's data indicates that AI integration may fundamentally transform how efficiently students can master academic content.
+
+While the results are impressive, questions remain about scalability, long-term outcomes, and whether the model addresses the full spectrum of educational needs beyond test performance. The approach also raises important discussions about the role of traditional classroom time, socialization, and non-academic development in education.
+
+As educational institutions worldwide grapple with integrating AI technologies, Alpha School's results provide compelling evidence that AI-enhanced learning models can deliver measurable academic gains while significantly reducing traditional instructional hours. The findings are likely to intensify debate about the future structure of education and the optimal balance between human instruction and AI-powered learning tools.
