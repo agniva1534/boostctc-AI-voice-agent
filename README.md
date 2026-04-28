@@ -1,23 +1,45 @@
 # BoostCTC Voice Agent
 
-LangGraph + TypeScript voice agent for BoostCTC, integrated with Vapi custom-LLM and a local cosine-similarity RAG index.
+> Real-time voice coaching agent built with LangGraph + TypeScript, powered by Vapi custom-LLM and retrieval-augmented responses.
 
-## What This Project Does
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+![Node >=20](https://img.shields.io/badge/node-%3E%3D20-339933?logo=node.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)
 
-- Runs a real-time voice coaching agent with two conversational modes.
-- Uses a structured pipeline (`Analyzer -> Orchestrator -> Speaker`) instead of a single prompt.
-- Retrieves relevant product/domain context from local embedded docs.
+## Why This Project
+
+- Two conversation experiences: `new_visitor` and `returning_user`.
+- Deterministic multi-step orchestration: `Analyzer -> Orchestrator -> Speaker`.
+- Local RAG over curated docs for grounded responses.
+- Streaming responses optimized for voice latency.
+
+## Quick Start (5 Minutes)
+
+```bash
+cd server
+npm install
+cp .env.example .env
+npm run ingest
+npm run dev
+```
+
+Then open `http://localhost:3000`.
+
+For first-time Vapi setup (assistant creation + tunnel), see [First-Time Setup](#first-time-setup).
 
 ## Table of Contents
 
 - [Architecture](#architecture)
-- [Modes](#modes)
+- [Mode Flow](#mode-flow)
 - [Prerequisites](#prerequisites)
-- [Quick Start](#quick-start)
+- [First-Time Setup](#first-time-setup)
+- [Daily Development](#daily-development)
 - [Environment Variables](#environment-variables)
 - [Useful Commands](#useful-commands)
 - [API Endpoints](#api-endpoints)
 - [Troubleshooting](#troubleshooting)
+- [Known Limitations](#known-limitations)
+- [Roadmap](#roadmap)
 - [Data and Security Notes](#data-and-security-notes)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
@@ -40,12 +62,23 @@ flowchart LR
     C --> J[Per-call state cache<br/>TTL 1h]
 ```
 
-## Modes
+## Mode Flow
 
-| Mode | Vapi Assistant | Phase Flow |
+| Mode | Assistant Env Var | Phase Flow |
 |---|---|---|
 | New Visitor | `VAPI_ASSISTANT_NEW_ID` | Greeting -> Value exploration -> Socratic taste -> Lead capture / Wrap-up |
 | Returning User | `VAPI_ASSISTANT_RETURNING_ID` | Welcome back -> Performance review (Socratic) -> Personalized nudge |
+
+```mermaid
+flowchart TD
+    A[Incoming Vapi call] --> B{assistantId}
+    B -->|VAPI_ASSISTANT_NEW_ID| C[new_visitor graph]
+    B -->|VAPI_ASSISTANT_RETURNING_ID| D[returning_user graph]
+    C --> E[Analyzer -> Orchestrator -> Speaker]
+    D --> F[Analyzer -> Orchestrator -> Speaker]
+    E --> G[Stream tokens back to Vapi]
+    F --> G
+```
 
 ## Prerequisites
 
@@ -55,30 +88,26 @@ flowchart LR
 - Vapi account + API keys
 - OpenAI API key
 
-## Quick Start
+## First-Time Setup
 
-### 1) Install dependencies
+### 1) Install dependencies and configure env
 
 ```bash
 cd server
 npm install
-```
-
-### 2) Configure environment
-
-```bash
 cp .env.example .env
 ```
 
 Fill required values in `server/.env` (see table below).
 
-### 3) Build the RAG index (first time or when knowledge base changes)
+### 2) Build RAG index
 
 ```bash
+cd server
 npm run ingest
 ```
 
-### 4) Create Vapi assistants (first time only)
+### 3) Create Vapi assistants (one-time)
 
 In one terminal:
 
@@ -87,7 +116,7 @@ cd server
 npm run server
 ```
 
-In another terminal:
+In a second terminal:
 
 ```bash
 cloudflared tunnel --url http://127.0.0.1:3000
@@ -100,12 +129,12 @@ cd server
 npm run setup:vapi
 ```
 
-This prints assistant IDs. Save them to:
+Save the printed IDs in:
 
 - `VAPI_ASSISTANT_NEW_ID`
 - `VAPI_ASSISTANT_RETURNING_ID`
 
-### 5) Daily development
+## Daily Development
 
 ```bash
 cd server
@@ -145,7 +174,7 @@ From `server/`:
 ## API Endpoints
 
 - `POST /v1/chat/completions`  
-  Vapi custom-LLM endpoint. Accepts Vapi-style chat payloads and returns streamed LLM output.
+  Vapi custom-LLM endpoint. Accepts Vapi-style chat payloads and returns streamed output.
 
 - `POST /api/lead`  
   Saves a lead record to local CSV (`server/data/leads.csv`) during local development.
@@ -166,6 +195,20 @@ From `server/`:
 
 - **Port already in use**  
   Change `PORT` in `.env` or stop the conflicting process.
+
+## Known Limitations
+
+- Local lead storage uses CSV (not a production database).
+- Local development expects a public tunnel for Vapi callbacks.
+- No full auth/rate-limiting layer is included in this repo.
+- RAG quality depends on the freshness of `knowledge_base/**`.
+
+## Roadmap
+
+- Add a production persistence layer for leads and call metadata.
+- Add automated tests for graph transitions and endpoint contracts.
+- Add CI checks for lint/typecheck/build on pull requests.
+- Add deploy templates for a cloud environment.
 
 ## Data and Security Notes
 
@@ -194,7 +237,7 @@ legacy/                   Old Python implementation (reference)
 ## Contributing
 
 1. Fork and create a feature branch.
-2. Keep changes focused and documented.
+2. Keep changes focused and document behavior changes.
 3. Run type checks/build before opening PR.
 4. Never commit secrets or user data.
 
