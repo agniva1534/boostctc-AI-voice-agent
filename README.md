@@ -25,17 +25,19 @@ LangGraph + TypeScript voice agent for BoostCTC, integrated with Vapi custom-LLM
 
 ## Architecture
 
-```text
-User Browser
-  └─ Vapi Web SDK (voice I/O)
-       └─ POST /v1/chat/completions  ←→  Express Server (Node 20, TS)
-                                           ├─ LangGraph pipeline (per Vapi call.id)
-                                           │    ├─ Analyzer node (gpt-4o-mini, temp 0)
-                                           │    ├─ Orchestrator node (phase routing)
-                                           │    └─ Speaker node (gpt-4o, temp 0.65)
-                                           │         └─ RAG retriever (cosine, top-4)
-                                           │              └─ src/rag/vectors.json
-                                           └─ Per-call state cache (TTL 1h)
+```mermaid
+flowchart LR
+    A[User Browser] --> B[Vapi Web SDK<br/>voice I/O]
+    B -->|POST /v1/chat/completions| C[Express Server<br/>Node 20 + TypeScript]
+
+    C --> D[LangGraph pipeline<br/>per Vapi call.id]
+    D --> E[Analyzer node<br/>gpt-4o-mini, temp 0]
+    D --> F[Orchestrator node<br/>phase routing]
+    D --> G[Speaker node<br/>gpt-4o, temp 0.65]
+    G --> H[RAG retriever<br/>cosine, top-4]
+    H --> I[src/rag/vectors.json]
+
+    C --> J[Per-call state cache<br/>TTL 1h]
 ```
 
 ## Modes
