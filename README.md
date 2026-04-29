@@ -10,7 +10,7 @@
 
 **Live:** [boostctc.com](https://boostctc.com) &nbsp;·&nbsp; **Demo:** _(add Loom or GIF here)_
 
-![Demo placeholder](./docs/demo.gif)
+![Demo placeholder]([./docs/demo.gif](https://drive.google.com/file/d/1iW7dFsRjPTkjqYATrm5V5lUe_WliW-O0/view?usp=drive_link))
 
 ---
 
