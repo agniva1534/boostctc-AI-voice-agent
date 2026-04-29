@@ -8,9 +8,9 @@
 ![LangGraph](https://img.shields.io/badge/LangGraph-orchestration-1C3C3C)
 ![Vapi](https://img.shields.io/badge/Vapi-voice-5A4FCF)
 
-**Live:** [boostctc.com](https://boostctc.com) &nbsp;·&nbsp; **Demo:** _(add Loom or GIF here)_
+**Live:** [boostctc.com](https://boostctc.com) &nbsp;·&nbsp; **Demo:** _(https://drive.google.com/file/d/1iW7dFsRjPTkjqYATrm5V5lUe_WliW-O0/view?usp=drive_link))_
 
-![Demo placeholder]([./docs/demo.gif](https://drive.google.com/file/d/1iW7dFsRjPTkjqYATrm5V5lUe_WliW-O0/view?usp=drive_link))
+
 
 ---
 
